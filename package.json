@@ -4,6 +4,9 @@
   "description": "Technical test for Acme Crypto Corp",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "test": "jest"
   },
   "repository": {
@@ -15,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/IvanDovgal/acme-crypto-corp-backend-tech-test/issues"
   },
-  "homepage": "https://github.com/IvanDovgal/acme-crypto-corp-backend-tech-test#readme"
+  "homepage": "https://github.com/IvanDovgal/acme-crypto-corp-backend-tech-test#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "eslintConfig": {
+    "extends": "airbnb"
+  }
 }
