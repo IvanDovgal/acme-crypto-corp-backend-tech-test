@@ -4,8 +4,9 @@
   "description": "Technical test for Acme Crypto Corp",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "babel-node index.js",
     "lint": "eslint .",
+    "flow": "flow",
     "lint:fix": "eslint --fix .",
     "test": "jest"
   },
@@ -20,16 +21,30 @@
   },
   "homepage": "https://github.com/IvanDovgal/acme-crypto-corp-backend-tech-test#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "eslint": "^5.3.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.4.0",
+    "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.4.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.12.4",
+    "flow-bin": "^0.94.0",
+    "jest": "^24.4.0"
   },
   "eslintConfig": {
-    "extends": "airbnb"
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended"
+    ],
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ]
   }
 }
