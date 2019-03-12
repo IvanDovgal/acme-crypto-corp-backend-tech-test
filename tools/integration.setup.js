@@ -1,3 +1,4 @@
+// @flow
 import { createLogger } from 'bunyan';
 import { Validator } from 'jsonschema';
 import createApp from '../src/app';
@@ -12,10 +13,14 @@ global.APP = app;
 
 const v = new Validator();
 
+interface ValidationError extends Error {
+  validations?: any[]
+}
+
 global.validateSchema = schema => (res) => {
   const result = v.validate(res.body, schema, { throwError: false });
   if (!result.valid) {
-    const error = new Error(`Validation JsonSchema fail:\n${result.toString()}`);
+    const error: ValidationError = new Error(`Validation JsonSchema fail:\n${result.toString()}`);
     error.validations = result.validations;
     throw error;
   }

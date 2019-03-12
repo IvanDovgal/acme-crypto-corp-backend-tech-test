@@ -2,5 +2,5 @@ const { defaults } = require('jest-config');
 
 module.exports = {
   ...defaults,
-  testMatch: ['**/__itests__/**/*.js', '**/?(*.)+(itest).js'],
+  testMatch: ['**/__tests__/**/*.js', '**/?(*.)+(test).js'],
 };
