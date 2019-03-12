@@ -25,6 +25,7 @@
     "bunyan": "^1.8.12",
     "express": "^4.16.4",
     "pg": "^7.8.2",
+    "express-request-id": "^1.4.1",
     "serialize-error": "^3.0.0"
   },
   "devDependencies": {
@@ -41,7 +42,6 @@
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "express-request-id": "^1.4.1",
     "flow-bin": "^0.94.0",
     "flow-typed": "^2.5.1",
     "jest": "^24.4.0"

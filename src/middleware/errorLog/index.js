@@ -7,7 +7,12 @@ import type {
 import type { Logger } from 'bunyan';
 import type { TrackedRequest, TrackedResponse } from '../../types';
 
-export const createErrorLogMiddleware = ({ logger }: { logger: Logger }) => (err: Error, req: TrackedRequest, res: TrackedResponse, next: NextFunction) => {
+export default ({ logger }: { logger: Logger }) => (
+  err: Error,
+  req: TrackedRequest,
+  res: TrackedResponse,
+  next: NextFunction,
+) => {
   logger.error({
     requestId: req.id,
     ...serializeError(err),

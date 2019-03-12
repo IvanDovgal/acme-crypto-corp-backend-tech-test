@@ -13,8 +13,8 @@ const createLogTableStatement = ({ tableName }) => `
 const createInsertStatement = ({ tableName }) => `INSERT INTO ${tableName}(log) VALUES ($1)`;
 
 class PostgresLogStream {
-
   client: Client;
+
   statement: string;
 
   constructor({ tableName, client }) {
@@ -23,7 +23,7 @@ class PostgresLogStream {
   }
 
   write(data: BunyanRecord) {
-    this.client.query(this.statement, [ data ]);
+    this.client.query(this.statement, [data]);
   }
 }
 
@@ -33,7 +33,7 @@ export type PostgresLogStreamOptions = {
   client: Client,
 }
 
-export const createPostgresLogStreamAsync = async ({
+export default async ({
   tableName = 'log',
   autoCreate = true,
   client,

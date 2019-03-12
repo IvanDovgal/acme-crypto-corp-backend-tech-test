@@ -18,8 +18,11 @@ const httpTransactionMapper = (req: TrackedRequest, res: TrackedResponse): any =
 });
 
 
-
-export const createAccessLogMiddleware = ({ logger }: { logger: Logger }) => (req: TrackedRequest, res: TrackedResponse, next: NextFunction) => {
+export default ({ logger }: { logger: Logger }) => (
+  req: TrackedRequest,
+  res: TrackedResponse,
+  next: NextFunction,
+) => {
   res.on('finish', () => {
     logger.info(httpTransactionMapper(req, res));
   });
