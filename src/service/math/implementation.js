@@ -14,7 +14,7 @@ export default class MathServiceImpl implements MathService {
     return a / b;
   }
 
-  square(a: number[]): number[] {
-    return a.map(n => n * n);
+  squareRoot(a: number[]): number[] {
+    return a.map(Math.sqrt);
   }
 }

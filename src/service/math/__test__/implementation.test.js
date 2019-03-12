@@ -8,7 +8,7 @@ describe('MathServiceImpl', () => {
     expect(service.divide(10, 2)).toBe(5);
   });
 
-  it('should square numbers array', () => {
-    expect(service.square([1, 2, 3])).toEqual([1, 4, 9]);
+  it('should calc square root of numbers array', () => {
+    expect(service.squareRoot([1, 4, 9])).toEqual([1, 2, 3]);
   });
 });
