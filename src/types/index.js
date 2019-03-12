@@ -15,7 +15,7 @@ export interface Services extends ContainsLogger {
 
 export interface TrackedRequest extends $Request {
   id: string,
-  services?: Services
+  services: Services
 }
 
 export interface TrackedResponse extends $Response {

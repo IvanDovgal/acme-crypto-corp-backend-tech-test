@@ -5,8 +5,9 @@ import express from 'express';
 import createAccessLogMiddleware from './middleware/accessLog';
 import createRequestIdMiddleware from './middleware/requestId';
 import createErrorLogMiddleware from './middleware/errorLog';
+import createErrorHandleMiddleware from './middleware/errorHandle';
 import createSetupServicesMiddleware from './middleware/setupServices';
-import createRouter from './route';
+import createRootRouter from './route';
 
 export interface AppOptions {
   logger: Logger,
@@ -27,7 +28,8 @@ export default ({
     createRequestIdMiddleware(),
     createSetupServicesMiddleware(),
     createAccessLogMiddleware({ logger: accessLogger }),
-    createRouter(),
+    createRootRouter(),
+    createErrorHandleMiddleware(),
     createErrorLogMiddleware({ logger: errorLogger }),
   );
   return app;
