@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r @babel/register src/index.js",
-    "test": "jest",
+    "test": "npm run test:unit",
+    "test:unit": "jest --config ./jest.config.unit.js",
+    "test:integration": "jest --config ./jest.config.integration.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "flow": "flow",
@@ -28,6 +30,7 @@
     "express-jsonschema": "^1.1.6",
     "express-request-id": "^1.4.1",
     "json-schema": "^0.2.3",
+    "jsonschema": "^1.2.4",
     "pg": "^7.8.2",
     "serialize-error": "^3.0.0"
   },
@@ -47,7 +50,9 @@
     "eslint-plugin-react": "^7.12.4",
     "flow-bin": "^0.94.0",
     "flow-typed": "^2.5.1",
-    "jest": "^24.4.0"
+    "jest": "^24.4.0",
+    "jest-config": "^24.5.0",
+    "supertest": "^4.0.0"
   },
   "eslintConfig": {
     "extends": [
@@ -60,10 +65,24 @@
       "jest"
     ],
     "rules": {
-      "class-methods-use-this": "warn"
+      "class-methods-use-this": "warn",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "**/__itests__/**/*.js",
+            "**/?(*.)+(itest).js",
+            "**/jest.config.*.js"
+          ]
+        }
+      ]
     },
     "env": {
       "jest/globals": true
+    },
+    "globals": {
+      "APP": true,
+      "validateSchema": true
     }
   }
 }
