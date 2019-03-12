@@ -5,8 +5,8 @@ import express from 'express';
 import createAccessLogMiddleware from './middleware/accessLog';
 import createRequestIdMiddleware from './middleware/requestId';
 import createErrorLogMiddleware from './middleware/errorLog';
+import createSetupServicesMiddleware from './middleware/setupServices';
 import createRouter from './route';
-import * as MathService from './service/math';
 
 export interface AppOptions {
   logger: Logger,
@@ -23,9 +23,9 @@ export default ({
 }: AppOptions) => {
   const app = express();
   app.locals.logger = appLogger;
-  app.locals.mathService = MathService.produce();
   app.use(
     createRequestIdMiddleware(),
+    createSetupServicesMiddleware(),
     createAccessLogMiddleware({ logger: accessLogger }),
     createRouter(),
     createErrorLogMiddleware({ logger: errorLogger }),
