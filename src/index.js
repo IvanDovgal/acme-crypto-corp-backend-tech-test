@@ -6,7 +6,7 @@ import createApp from './app';
 import createPostgresLogStreamAsync from './misc/postgresLogStream';
 
 
-const PORT = 3006;
+const PORT = process.env.PORT || 3000;
 
 const startServer = async ({ port }) => {
   const client = new Client();
