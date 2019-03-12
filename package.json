@@ -24,8 +24,10 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "express": "^4.16.4",
-    "pg": "^7.8.2",
+    "express-jsonschema": "^1.1.6",
     "express-request-id": "^1.4.1",
+    "json-schema": "^0.2.3",
+    "pg": "^7.8.2",
     "serialize-error": "^3.0.0"
   },
   "devDependencies": {
