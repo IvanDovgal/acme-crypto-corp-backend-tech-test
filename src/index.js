@@ -15,12 +15,31 @@ const startServer = async ({ port }) => {
     name: 'app',
     streams: [
       {
+        stream: process.stdout,
+      },
+      {
         stream: await createPostgresLogStreamAsync({ client }),
       },
     ],
   });
   const app = createApp({
     logger,
+    accessLogger: logger.child({
+      streams: [
+        {
+          level: 'info',
+          path: 'access.log',
+        },
+      ],
+    }),
+    errorLogger: logger.child({
+      streams: [
+        {
+          level: 'error',
+          path: 'error.log',
+        },
+      ],
+    }),
   });
 
   app.listen(port, () => {

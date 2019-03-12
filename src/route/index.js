@@ -1,3 +1,6 @@
 import { Router } from 'express';
 
-export default () => new Router();
+export default () => {
+  const router = new Router();
+  return router;
+};

@@ -1,6 +1,6 @@
 // @flow
 import type { NextFunction } from 'express';
-import * as Logger from 'bunyan';
+import Logger from 'bunyan';
 import type { Logger as LoggerType } from 'bunyan';
 import type { TrackedRequest, TrackedResponse, Services } from '../../types';
 import * as MathService from '../../service/math';
