@@ -1,8 +1,9 @@
+// @flow
 import { Router } from 'express';
-import createMathRouter from './math';
+import divideController from './divideController';
 
 export default () => {
   const router = new Router();
-  router.use('/math', createMathRouter());
+  router.get('/', ...divideController);
   return router;
 };
