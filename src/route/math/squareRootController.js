@@ -6,13 +6,18 @@ import type { TrackedRequest, TrackedResponse } from '../../types';
 import requestSchema from './schema/squareRoot/request';
 
 export default [express.json(), validate({ body: requestSchema }), (
-  req: TrackedRequest,
+  { body, services }: TrackedRequest,
   res: TrackedResponse,
 ) => {
-  res.status(200).json({
-    success: true,
-    data: {
-      values: req.services.mathService.squareRoot(req.body.values),
-    },
-  });
+  if (body != null && typeof body === 'object') {
+    const { values } = body;
+    if (values != null && typeof values === 'object' && Array.isArray(values)) {
+      res.status(200).json({
+        success: true,
+        data: {
+          values: services.mathService.squareRoot(values),
+        },
+      });
+    }
+  }
 }];
