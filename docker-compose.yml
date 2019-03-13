@@ -8,9 +8,9 @@ services:
     ports:
       - 5432:5432
   api:
-    image: node:alpine
+    image: node
     working_dir: /app
-    command: sh -c "npm install && npm start"
+    command: sh -c "npm install && NODE_ENV=production npm start"
     expose:
       - 3000
     ports:
