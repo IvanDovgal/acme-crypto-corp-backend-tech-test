@@ -3,7 +3,7 @@
 import request from 'supertest';
 import responseSchema from '../schema/squareRoot/response';
 
-describe('GET /match', () => {
+describe('POST /match', () => {
   it('response should valid schema', (done) => {
     request(APP)
       .post('/math')
