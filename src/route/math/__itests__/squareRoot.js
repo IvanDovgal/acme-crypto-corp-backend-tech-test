@@ -8,7 +8,7 @@ describe('POST /match', () => {
     request(APP)
       .post('/math')
       .send({
-        values: [100, 25, 49]
+        values: [100, 25, 49],
       })
       .set('Accept', 'application/json')
       .expect(validateSchema(responseSchema))
@@ -18,14 +18,14 @@ describe('POST /match', () => {
     request(APP)
       .post('/math')
       .send({
-        values: [100, 25, 49]
+        values: [100, 25, 49],
       })
       .set('Accept', 'application/json')
       .expect({
         success: true,
         data: {
-          values: [10, 5, 7]
-        }
+          values: [10, 5, 7],
+        },
       })
       .end(done);
   });
@@ -33,7 +33,7 @@ describe('POST /match', () => {
     request(APP)
       .post('/math')
       .send({
-        values: [100, 25, '']
+        values: [100, 25, ''],
       })
       .set('Accept', 'application/json')
       .expect(400)
