@@ -79,7 +79,7 @@
       ]
     },
     "env": {
-      "jest/globals": true
+      "jest": true
     },
     "globals": {
       "APP": true,
