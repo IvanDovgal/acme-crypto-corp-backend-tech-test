@@ -1,7 +1,7 @@
 // @flow
 
 import request from 'supertest';
-import responseSchema from '../schema/devision/response';
+import responseSchema from '../schema/division/response';
 
 describe('GET /match', () => {
   it('response should valid schema', (done) => {
@@ -20,8 +20,8 @@ describe('GET /match', () => {
       .expect({
         success: true,
         data: {
-          value: 20
-        }
+          value: 20,
+        },
       })
       .end(done);
   });
